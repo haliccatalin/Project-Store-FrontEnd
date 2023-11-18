@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Item} from "../models/Item";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
@@ -12,18 +12,6 @@ import {User} from "../models/User";
 export class DashboardComponent {
   selectedItem: Item = new Item("", "", "", "", "");
   selectedUser: User = new User("", "", "", "");
-
-  onChangeItem(item: Item): void {
-    console.log("dashboard on change data");
-    console.log(item);
-    this.selectedItem = item;
-  }
-
-  onChangeUser(user: any): void {
-    console.log("dashboard on change data");
-    console.log(user);
-    this.selectedUser = user;
-  }
 
   title: string = environment.appName;
   logo: string = environment.appLogo;
@@ -47,7 +35,23 @@ export class DashboardComponent {
   constructor(private router: Router) {
   }
 
+  onChangeItem(item: Item): void {
+    console.log("dashboard on change data");
+    console.log(item);
+    this.selectedItem = item;
+  }
+
+  onChangeUser(user: any): void {
+    console.log("dashboard on change data");
+    console.log(user);
+    this.selectedUser = user;
+  }
+
   onChangePage(page: any) {
     this.router.navigateByUrl(page.route);
+  }
+
+  onLogout(): void {
+    this.router.navigateByUrl('/auth');
   }
 }
