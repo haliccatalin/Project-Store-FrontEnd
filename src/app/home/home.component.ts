@@ -35,6 +35,7 @@ export class HomeComponent {
   }
 
   onChangePage(page: any) {
+    console.log(page);
     this.router.navigateByUrl(page.route);
   }
 
