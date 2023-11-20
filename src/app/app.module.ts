@@ -22,10 +22,10 @@ import {HomeComponent} from './home/home.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
-import { CartButtonComponent } from './home/cart-button/cart-button.component';
-import { CartDialogComponent } from './home/cart-dialog/cart-dialog.component';
+import {CartButtonComponent} from './home/cart-button/cart-button.component';
+import {CartDialogComponent} from './home/cart-dialog/cart-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { ListCartsComponent } from './dashboard/list-carts/list-carts.component';
+import {ListCartsComponent} from './dashboard/list-carts/list-carts.component';
 
 @NgModule({
   declarations: [

@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-// import {MovieService} from "../services/movie.service";
 import {Item} from "../../models/Item";
 import {ItemService} from "../../services/item.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-add-edit-item',
@@ -19,11 +19,12 @@ export class AddEditItemComponent implements OnChanges {
   category = new FormControl('', [Validators.required]);
   imageUrl = new FormControl('', [Validators.required]);
 
+  itemCategories: Array<string> = environment.itemCategories;
   constructor(private itemService: ItemService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("Add edit delete movie");
+    console.log("Add edit delete item");
     console.log(this.item);
     this.id = this.item.id!;
     this.title = new FormControl(this.item.title, [Validators.required]);
@@ -42,17 +43,14 @@ export class AddEditItemComponent implements OnChanges {
   }
 
   onSave(): void {
-    let item: Item = new Item(this.title.getRawValue()!, this.description.getRawValue()!, this.category.getRawValue()!, this.price.getRawValue()!, this.imageUrl.getRawValue()!);
+    let item: Item = new Item("", "", "", "", "");
 
+    item.id = this.id;
     item.title = this.title.getRawValue()!;
     item.description = this.description.getRawValue()!;
     item.price = this.price.getRawValue()!;
     item.category = this.category.getRawValue()!;
     item.imageUrl = this.imageUrl.getRawValue()!;
-
-    item.id = this.id;
-
-    this.resetFrom();
 
     if (item.id == "") {
       this.itemService.createItem(item);
@@ -60,8 +58,7 @@ export class AddEditItemComponent implements OnChanges {
       this.itemService.updateItem(item);
     }
 
-    console.log(item);
-    // this.movieService.addMovie(movie);
+    this.resetFrom();
   }
 
   private resetFrom() {

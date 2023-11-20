@@ -12,6 +12,12 @@ export class HomeComponent {
   logo: string = environment.appLogo;
   owner: string = environment.appOwner;
 
+  // images
+  imageSalesLeft: string = 'assets/sales_left.jpeg';
+  imageSalesMiddle: string = 'assets/sales_middle.jpeg';
+  imageSalesRight: string = 'assets/sales_right.jpeg';
+
+  // menu items
   items: Array<any> = [
     {
       title: 'Home',
@@ -27,15 +33,10 @@ export class HomeComponent {
     },
   ];
 
-  imageSalesLeft: string = 'assets/sales_left.jpeg';
-  imageSalesMiddle: string = 'assets/sales_middle.jpeg';
-  imageSalesRight: string = 'assets/sales_right.jpeg';
-
   constructor(private router: Router) {
   }
 
   onChangePage(page: any) {
-    console.log(page);
     this.router.navigateByUrl(page.route);
   }
 

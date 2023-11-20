@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Item} from "../models/Item";
 import {BehaviorSubject} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -29,7 +29,7 @@ export class ItemService {
     let headers = new HttpHeaders();
     headers.set("CONTENT-TYPE","APPLICATION/json")
     this.httpClient.post(`${environment.apiUrl}/items/`, body,{headers: headers}).subscribe((response:any) => {
-      console.log("Create movie response")
+      console.log("Create item response")
       console.log(response);
       alert(response.message);
       this.readItems();
@@ -46,7 +46,7 @@ export class ItemService {
       "imageUrl": item.imageUrl,
     }
     this.httpClient.patch(`${environment.apiUrl}/items/${item.id}`, body).subscribe((response:any) => {
-      console.log("Update movie response")
+      console.log("Update item response")
       console.log(response);
       alert(response.message);
       this.readItems();
@@ -55,7 +55,7 @@ export class ItemService {
 
   deleteItem(id:string) {
     this.httpClient.delete(`${environment.apiUrl}/items/${id}`).subscribe((response:any) => {
-      console.log("Delete movie response")
+      console.log("Delete item response")
       console.log(response);
       alert(response.message);
       this.readItems();

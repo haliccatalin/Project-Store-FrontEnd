@@ -8,8 +8,8 @@ import {UserService} from "../../services/user.service";
   templateUrl: './cart-dialog.component.html',
   styleUrls: ['./cart-dialog.component.css']
 })
-export class CartDialogComponent implements OnInit {
-  items:Array<any> = [];
+export class CartDialogComponent {
+  items: Array<any> = [];
 
   constructor(private cartService: CartService) {
     this.cartService.getCart().subscribe((items: Array<any>) => {
@@ -19,10 +19,6 @@ export class CartDialogComponent implements OnInit {
 
       console.log(items)
     });
-  }
-
-  ngOnInit() {
-    console.log('test');
   }
 
   public onDeleteCart(item: Item) {

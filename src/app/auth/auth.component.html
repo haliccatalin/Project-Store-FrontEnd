@@ -24,7 +24,6 @@
 
   <mat-card *ngSwitchCase="'register'" class="card-container">
     <mat-card-content>
-
       <div class="input-container">
         <mat-form-field appearance="fill" class="input-field">
           <mat-label>user name</mat-label>
@@ -39,8 +38,6 @@
           <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
         </mat-form-field>
       </div>
-
-
       <div class="input-container">
         <mat-form-field appearance="fill" class="input-field">
           <mat-label>Password</mat-label>
@@ -55,13 +52,10 @@
           <mat-error *ngIf="retypePassword.invalid">{{getErrorPasswordMessage()}}</mat-error>
         </mat-form-field>
       </div>
-
       <div class="div-buttons-container">
         <button mat-raised-button color="primary" (click)="onRegister()">Register!</button>
         <button mat-button color="primary" (click)="onSwitchViewType('login')">Back to Log In!</button>
       </div>
-
-
     </mat-card-content>
   </mat-card>
   <div *ngSwitchDefault>

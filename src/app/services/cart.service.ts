@@ -4,7 +4,6 @@ import {Item} from "../models/Item";
 import {UserService} from "./user.service";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {B} from "@angular/cdk/keycodes";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,6 @@ export class CartService {
     this.readAllCarts();
   }
 
-
   public addToCart(item: Item): void {
     let items = this.cartObservable.getValue();
     items.push(item);
@@ -26,11 +24,7 @@ export class CartService {
 
   public removeFromCart(item: Item): void {
     let items = this.cartObservable.getValue();
-    /*items = items.filter((it:Item)=>{
-      if(it.id==item.id){
-        return false;
-      }else {return true};
-    })*/
+
     items = items.filter((it: Item) => it.id != item.id);
     this.cartObservable.next(items);
   }
@@ -49,20 +43,7 @@ export class CartService {
       items: this.cartObservable.getValue()
     }
 
-    console.log(body)
-
     this.httpClient.post(`${environment.apiUrl}/carts/`, body).subscribe((response: any) => {
-      console.log(response)
-    })
-  }
-
-  public createCartWithDto() {
-    let body = {
-      userId: this.userService.getUser().id,
-      items: this.cartObservable.getValue()
-    }
-
-    this.httpClient.post(`${environment.apiUrl}/carts/create-dto`, body).subscribe((response: any) => {
       console.log(response)
     })
   }

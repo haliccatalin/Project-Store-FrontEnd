@@ -27,7 +27,7 @@
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Category</mat-label>
             <mat-select [formControl]="category" required>
-              <mat-option *ngFor="let cat of ['SMALL', 'MEDIUM','LARGE']" [value]="cat">
+              <mat-option *ngFor="let cat of itemCategories" [value]="cat">
                 {{cat}}
               </mat-option>
             </mat-select>
@@ -46,7 +46,7 @@
         </div>
       </mat-card-content>
     </mat-card>
-    <div class="div-image-row"  *ngIf="imageUrl.getRawValue() != ''">
+    <div class="div-image-row" *ngIf="imageUrl.getRawValue() != ''">
       <img class="img-movie" [src]="imageUrl.getRawValue()"/>
     </div>
   </div>

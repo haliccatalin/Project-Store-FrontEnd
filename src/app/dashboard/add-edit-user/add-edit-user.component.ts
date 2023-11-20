@@ -10,7 +10,7 @@ import {User} from "../../models/User";
   templateUrl: './add-edit-user.component.html',
   styleUrls: ['./add-edit-user.component.css']
 })
-export class AddEditUserComponent implements OnChanges{
+export class AddEditUserComponent implements OnChanges {
   @Input("user") user: User = new User("", "", "", "");
   id = "";
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -19,12 +19,11 @@ export class AddEditUserComponent implements OnChanges{
   retypePassword = new FormControl('', [Validators.required]);
   userRole = new FormControl('', [Validators.required]);
 
-
   constructor(private router: Router, private authService: AuthService, private userService: UserService) {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.user!= null){
+    if (this.user != null) {
       this.id = this.user.id;
       this.email = new FormControl(this.user.email, [Validators.required, Validators.email]);
       this.userName = new FormControl(this.user.username, [Validators.required]);
@@ -60,7 +59,7 @@ export class AddEditUserComponent implements OnChanges{
 
 
   onSave(): void {
-    if (this.id == ""){
+    if (this.id == "") {
       this.userService.createUser(
         this.userName.getRawValue()!,
         this.email.getRawValue()!,

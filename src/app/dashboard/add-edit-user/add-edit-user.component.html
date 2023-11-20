@@ -1,6 +1,5 @@
 <mat-card class="card-container">
   <mat-card-content>
-
     <div class="input-container">
       <mat-form-field appearance="fill" class="input-field">
         <mat-label>user name</mat-label>
@@ -15,7 +14,6 @@
         <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
       </mat-form-field>
     </div>
-
 
     <div class="input-container">
       <mat-form-field appearance="fill" class="input-field">
@@ -46,7 +44,5 @@
     <div class="div-buttons-container">
       <button mat-raised-button color="primary" (click)="onSave()">Save</button>
     </div>
-
-
   </mat-card-content>
 </mat-card>
