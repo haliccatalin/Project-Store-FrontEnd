@@ -45,6 +45,7 @@ export class CartService {
 
     this.httpClient.post(`${environment.apiUrl}/carts/`, body).subscribe((response: any) => {
       console.log(response)
+      this.cartObservable.next([]);
     })
   }
 
