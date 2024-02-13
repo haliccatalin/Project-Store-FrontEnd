@@ -58,6 +58,7 @@ export class ItemService {
       console.log("Delete item response")
       console.log(response);
       alert(response.message);
+
       this.readItems();
     });
   }
